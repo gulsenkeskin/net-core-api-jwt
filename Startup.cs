@@ -82,12 +82,13 @@ namespace CustomerAPI
             {
                 options.AddPolicy("CorsPolicy",
                     builder => builder
-                    .WithOrigins("http://localhost:4200","http://localhost:82")
+                    .WithOrigins("http://localhost:4200", "http://localhost:4200/login")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
 
+       
 
         }
 
@@ -104,8 +105,8 @@ namespace CustomerAPI
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions()
             {
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Uploads")),
-                RequestPath = new PathString("/Uploads")
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"C:\Users\harmo\Documents\my_projects\net-core-api-jwt\wwwroot\Uploads")),
+                RequestPath = new PathString("/wwwroot/Uploads")
             });
 
             app.UseHttpsRedirection();
